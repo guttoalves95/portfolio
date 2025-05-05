@@ -1,0 +1,492 @@
+/* Dark Theme Styles */
+.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Carousel */
+.dark-theme .banner-carousel {
+    background-color: #1e1e1e;
+}
+
+.dark-theme .carousel-caption h2 {
+    color: #ffffff;
+}
+
+.dark-theme .carousel-caption p {
+    color: #bbbbbb;
+}
+
+.dark-theme .indicator {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.dark-theme .indicator.active {
+    background-color: #3498db;
+}
+
+/* Minha Jornada */
+.dark-theme .my-journey {
+    background: linear-gradient(to right, #1a1a1a, #2d2d2d);
+}
+
+.dark-theme .section-title {
+    color: #ffffff;
+}
+
+.dark-theme .section-title::after {
+    background: #4dabf7;
+}
+
+.dark-theme .tech-stack,
+.dark-theme .journey-highlights,
+.dark-theme .featured-projects,
+.dark-theme .project-item {
+    background-color: #1e1e1e !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark-theme .tech-stack h3,
+.dark-theme .journey-highlights h3,
+.dark-theme .featured-projects h3,
+.dark-theme .project-item h4 {
+    color: #ffffff;
+}
+
+.dark-theme .journey-highlights p,
+.dark-theme .project-item p,
+.dark-theme .milestone p {
+    color: #aaaaaa !important;
+}
+
+.dark-theme .milestone {
+    background-color: #252525 !important;
+    border: 1px solid #333;
+}
+
+.dark-theme .milestone:hover {
+    background-color: #2d2d2d !important;
+}
+
+.dark-theme .milestone i {
+    color: #4dabf7;
+}
+
+.dark-theme .project-link {
+    color: #4dabf7;
+}
+
+.dark-theme .project-link:hover {
+    color: #74c0fc;
+}
+
+.dark-theme .tech-icons i {
+    color: #4dabf7;
+}
+
+.dark-theme .profile-overlay {
+    background: rgba(30, 58, 138, 0.8);
+}
+
+/* Como Fiz o Site */
+.dark-theme .site-creation {
+    background-color: #1a1a1a;
+}
+
+.dark-theme .site-creation h2 {
+    color: #ffffff;
+}
+
+.dark-theme .step {
+    background-color: #1e1e1e;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+}
+
+.dark-theme .step h3 {
+    color: #ffffff;
+}
+
+.dark-theme .step p {
+    color: #aaaaaa;
+}
+
+
+.dark-theme .project-card {
+    background-color: #1e1e1e;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: #333;
+}
+
+.dark-theme .card-header h3 {
+    color: #ffffff;
+}
+
+.dark-theme .project-info p {
+    color: #aaaaaa;
+}
+
+/* Cards específicos */
+.dark-theme .github-card {
+    border-top-color: #6e5494;
+}
+
+.dark-theme .github-card .card-header i {
+    color: #6e5494;
+}
+
+.dark-theme .github-card .demo-link {
+    background-color: #6e5494;
+    color: white;
+}
+
+.dark-theme .github-card .code-link {
+    background-color: #333;
+    color: #d1d5db;
+}
+
+.dark-theme .php-card {
+    border-top-color: #777BB3;
+}
+
+.dark-theme .php-card .card-header i {
+    color: #777BB3;
+}
+
+.dark-theme .php-card .demo-link {
+    background-color: #777BB3;
+    color: white;
+}
+
+.dark-theme .php-card .code-link {
+    background-color: #333;
+    color: #d1d5db;
+}
+
+.dark-theme .js-card {
+    border-top-color: #f0db4f;
+}
+
+.dark-theme .js-card .card-header i {
+    color: #f0db4f;
+}
+
+.dark-theme .js-card .demo-link {
+    background-color: #f0db4f;
+    color: #333;
+}
+
+.dark-theme .js-card .code-link {
+    background-color: #333;
+    color: #f0db4f;
+}
+
+/* Rodapé */
+.dark-theme footer {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+.dark-theme .footer-bottom {
+    border-top: 1px solid #333;
+}
+
+.dark-theme .newsletter-form input {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+.dark-theme .newsletter-form button {
+    background-color: #444;
+    color: white;
+}
+
+/* Links */
+.dark-theme a {
+    color: #4dabf7;
+}
+
+.dark-theme a:hover {
+    color: #74c0fc;
+}
+
+/* Ícones sociais */
+.dark-theme .social-links a {
+    color: #e0e0e0;
+}
+
+.dark-theme .social-links a:hover {
+    color: #4dabf7;
+}
+
+
+
+/* Dark Theme para Seção de Projetos */
+.dark-theme .my-projects {
+    background-color: #121212;
+}
+
+.dark-theme .my-projects {
+    background: #121212 !important;
+    background-image: none !important;
+}
+
+.dark-theme .section-title {
+    color: #ffffff;
+}
+
+.dark-theme .section-title::after {
+    background: #4dabf7;
+}
+
+.dark-theme .project-card {
+    background-color: #1e1e1e;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-top: 5px solid;
+}
+
+.dark-theme .card-header {
+    border-bottom: 1px solid #333;
+}
+
+.dark-theme .card-header h3 {
+    color: #ffffff;
+}
+
+.dark-theme .project-info p {
+    color: #aaaaaa;
+}
+
+.dark-theme .tech-icons i {
+    color: #4dabf7;
+}
+
+/* Cards específicos no dark mode */
+.dark-theme .github-card {
+    border-top-color: #6e5494;
+}
+
+.dark-theme .github-card .card-header i {
+    color: #6e5494;
+}
+
+.dark-theme .github-card .demo-link {
+    background-color: #6e5494;
+    color: white;
+}
+
+.dark-theme .github-card .code-link {
+    background-color: #333;
+    color: #d1d5db;
+}
+
+.dark-theme .php-card {
+    border-top-color: #777BB3;
+}
+
+.dark-theme .php-card .card-header i {
+    color: #777BB3;
+}
+
+.dark-theme .php-card .demo-link {
+    background-color: #777BB3;
+    color: white;
+}
+
+.dark-theme .php-card .code-link {
+    background-color: #333;
+    color: #d1d5db;
+}
+
+.dark-theme .js-card {
+    border-top-color: #f0db4f;
+}
+
+.dark-theme .js-card .card-header i {
+    color: #f0db4f;
+}
+
+.dark-theme .js-card .demo-link {
+    background-color: #f0db4f;
+    color: #333;
+}
+
+.dark-theme .js-card .code-link {
+    background-color: #333;
+    color: #f0db4f;
+}
+
+/* Efeitos hover no dark mode */
+.dark-theme .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.dark-theme .demo-link:hover, 
+.dark-theme .code-link:hover {
+    filter: brightness(1.1);
+}
+
+.dark-theme .tech-icons i:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+
+/* Adicionar tooltips */
+.social-icons a::after {
+    content: attr(aria-label);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2c3e50;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.social-icons a:hover::after {
+    opacity: 1;
+}
+
+.dark-theme .social-icons a::after {
+    background: #e0e0e0;
+    color: #2c3e50;
+}
+
+
+.dark-theme .theme-btn .fa-moon {
+    display: none;
+}
+
+.dark-theme .theme-btn .fa-sun {
+    display: inline-block;
+    color: #ffd700;
+}
+
+/* Efeitos hover */
+.theme-btn:hover {
+    transform: scale(1.1);
+}
+
+.dark-theme .theme-btn:hover {
+    color: #ffd700;
+}
+
+.theme-btn:hover .fa-moon {
+    color: #555;
+}
+
+.dark-theme .theme-btn:hover .fa-sun {
+    color: #ffeb3b;
+}
+
+
+
+/* Menu Hamburguer */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    z-index: 1001; /* Garante que fique acima de outros elementos */
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 100%;
+    display: block;
+    background-color: #333; /* Cor padrão do hamburguer (light mode) */
+    transition: all 0.3s ease;
+}
+
+.dark-theme .menu-toggle .bar {
+    background-color: #171616; /* Cor do hamburguer no dark mode */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav-list {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        flex-direction: column;
+        background: #fff; /* Fundo branco para os links */
+        padding: 2rem;
+        transition: left 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .dark-theme .nav-list {
+        background: #1e1e1e; /* Fundo escuro para os links no dark mode */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    .nav-list.active {
+        left: 0;
+    }
+    
+    .nav-list li {
+        margin: 1rem 0;
+        width: 100%;
+    }
+
+    .nav-list a {
+        display: block;
+        padding: 0.5rem 0;
+        color: #333; /* Cor dos links no light mode */
+    }
+
+    .dark-theme .nav-list a {
+        color: #fff; /* Cor dos links no dark mode */
+    }
+    
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+
+    /* Transforma hamburguer em X quando menu aberto */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+    
+    /* Restante do seu CSS existente */
+    .story-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-img {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .carousel-container {
+        height: 300px;
+    }
+}

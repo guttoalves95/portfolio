@@ -1,0 +1,115 @@
+<?php 
+$page_title = "Sobre - Meu Portfólio";
+$theme = isset($_COOKIE['theme']) ? $_COOKIE['theme'] : 'light';
+include 'includes/header.php'; 
+?>
+
+<!-- Banner Tecnologia -->
+<section class="about-banner">
+    <div class="banner-container">
+        <img src="assets/img/jornada.jpg" 
+             alt="Tecnologia e Programação" 
+             class="banner-img">
+        <div class="banner-overlay"></div>
+        <div class="banner-content">
+            <h1>Minha Jornada Profissional</h1>
+            <p>Da teoria à prática: minha evolução na tecnologia</p>
+        </div>
+    </div>
+</section>
+
+<!-- Conteúdo Sobre -->
+<section class="about-content">
+    <div class="container">
+        <div class="timeline">
+            <!-- Formação -->
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="timeline-content">
+                    <h2>Formação Acadêmica</h2>
+                    <p>Graduação em Análise e Desenvolvimento de Sistemas</p>
+                    <p>Durante minha formação, adquiri conhecimentos sólidos em programação, banco de dados, engenharia de software e gestão de projetos de TI.</p>
+                </div>
+            </div>
+
+            <!-- Experiência Profissional -->
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="timeline-content">
+                    <h2>Experiência Profissional</h2>
+                    
+                    <div class="job-experience">
+                        <h3>MKm Internet - Suporte Externo</h3>
+                        <p class="job-period">2 anos</p>
+                        <p>Atuei no suporte técnico externo, resolvendo problemas de conectividade e infraestrutura de rede para clientes empresariais.</p>
+                    </div>
+
+                    <div class="job-experience">
+                        <h3>Log Pro - Analista de TI</h3>
+                        <p class="job-period">6 meses</p>
+                        <p>Responsável pela manutenção de sistemas internos e suporte aos usuários da empresa.</p>
+                    </div>
+
+                    <div class="job-experience">
+                        <h3>MKm Internet - NOC (Network Operations Center)</h3>
+                        <p class="job-period">Atual</p>
+                        <p>Atuo no monitoramento de redes, identificação e resolução de problemas, além de desenvolver ferramentas internas para otimizar nossos processos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Habilidades -->
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="timeline-content">
+                    <h2>Habilidades Adquiridas</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fas fa-network-wired"></i>
+                            <h3>Redes de Computadores</h3>
+                            <p>Conhecimentos básico em infraestrutura de redes e protocolos.</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Cybersegurança</h3>
+                            <p>Noções de segurança da informação e boas práticas.</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-laptop-code"></i>
+                            <h3>Desenvolvimento Web</h3>
+                            <p>Criação de sites e sistemas web completos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projetos -->
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <div class="timeline-content">
+                    <h2>Projeto Destaque</h2>
+                    <h3>Sistema de Currículos</h3>
+                    <p>Desenvolvi um sistema completo para criação e gerenciamento de currículos, incluindo:</p>
+                    <ul class="project-features">
+                        <li>Interface intuitiva para criação de currículos</li>
+                        <li>Painel administrativo para gerenciamento</li>
+                        <li>Exportação em PDF</li>
+                        <li>Sistema de templates personalizáveis</li>
+                        <li>MySQL</li>
+                    </ul>
+                    <p>Este projeto consolidou meus conhecimentos em desenvolvimento full-stack e gestão de projetos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php include 'includes/footer.php'; ?>

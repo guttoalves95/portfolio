@@ -1,0 +1,246 @@
+/* Banner Pessoal */
+.personal-banner {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+.personal-banner .banner-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.personal-banner .banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.personal-banner .banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.3));
+}
+
+.dark-theme .personal-banner .banner-overlay {
+    background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.5));
+}
+
+.personal-banner .banner-content {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    max-width: 600px;
+    color: white;
+}
+
+.personal-banner .banner-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.personal-banner .banner-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Conteúdo Pessoal */
+.personal-content {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+}
+
+.dark-theme .personal-content {
+    background-color: #121212;
+}
+
+.personal-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.personal-card {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.dark-theme .personal-card {
+    background: #1e1e1e;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+/* Perfil */
+.personal-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    border: 5px solid #3498db;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.personal-details {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.personal-details li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.personal-details i {
+    color: #3498db;
+    width: 25px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+/* Jornada */
+.journey-timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.journey-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 15px;
+    height: 100%;
+    width: 2px;
+    background: #3498db;
+}
+
+.journey-step {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.step-icon {
+    position: absolute;
+    left: -30px;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background: #3498db;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-content {
+    padding: 1rem;
+    background: #f1f1f1;
+    border-radius: 8px;
+    position: relative;
+}
+
+.dark-theme .step-content {
+    background: #252525;
+}
+
+.step-content h3 {
+    color: #3498db;
+    margin-bottom: 0.5rem;
+}
+
+/* Valores */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.value-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f1f1f1;
+    border-radius: 8px;
+}
+
+.dark-theme .value-item {
+    background: #252525;
+}
+
+.value-item i {
+    font-size: 2rem;
+    color: #3498db;
+    margin-bottom: 1rem;
+}
+
+.value-item h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.dark-theme .value-item h3 {
+    color: #e0e0e0;
+}
+
+/* Responsividade */
+@media (min-width: 768px) {
+    .personal-grid {
+        grid-template-columns: 1fr 2fr;
+    }
+    
+    .personal-profile {
+        grid-row: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .personal-banner .banner-content {
+        left: 20px;
+        bottom: 20px;
+        max-width: 90%;
+    }
+    
+    .personal-banner .banner-content h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .personal-banner {
+        height: 300px;
+    }
+    
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .personal-details li {
+        font-size: 1rem;
+    }
+}
