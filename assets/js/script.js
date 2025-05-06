@@ -1,42 +1,39 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // ========== Menu Hamburguer ==========
+    // Menu Hamburguer
     const menuToggle = document.getElementById('mobile-menu');
     const navList = document.querySelector('.nav-list');
     
-    if (menuToggle && navList) {
-        menuToggle.addEventListener('click', function() {
-            navList.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
-    }
-
-    // ========== Tema Light/Dark ==========
+    menuToggle.addEventListener('click', function() {
+        navList.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
+    
+    // Tema Light/Dark
     const themeToggle = document.getElementById('theme-toggle');
+    const themeStyle = document.getElementById('theme-style');
     const body = document.body;
     
-    if (themeToggle) {
-        // Verificar preferência salva
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        setTheme(savedTheme);
-        
-        themeToggle.addEventListener('click', function() {
-            const newTheme = body.classList.contains('dark-theme') ? 'light' : 'dark';
-            setTheme(newTheme);
-            localStorage.setItem('theme', newTheme);
-        });
-    }
+    // Verificar preferência salva
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+    
+    themeToggle.addEventListener('click', function() {
+        const newTheme = body.classList.contains('dark-theme') ? 'light' : 'dark';
+        setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+        document.cookie = `theme=${newTheme}; path=/; max-age=31536000`; // 1 ano
+    });
     
     function setTheme(theme) {
         if (theme === 'dark') {
             body.classList.add('dark-theme');
-            body.classList.remove('light-theme');
+            themeStyle.href = 'assets/css/dark.css';
         } else {
-            body.classList.add('light-theme');
             body.classList.remove('dark-theme');
+            themeStyle.href = 'assets/css/style.css';
         }
     }
 
-    // ========== Carrossel de Banners ==========
     function initCarousel() {
         const carouselContainer = document.querySelector('.carousel-container');
         const slides = document.querySelectorAll('.carousel-slide');
@@ -47,25 +44,29 @@ document.addEventListener('DOMContentLoaded', function() {
         let currentIndex = 0;
         let isAnimating = false;
         let intervalId;
-        const slideInterval = 5000; // 5 segundos
-        const transitionDuration = 800; // 0.8s
+        const slideInterval = 4000;
+        const transitionDuration = 1000; // Aumentei um pouco a duração
     
-        // Configuração inicial
-        function setupCarousel() {
+        // Pré-carrega as imagens de forma mais eficiente
+        function preloadImages() {
+            const images = [];
             slides.forEach((slide, index) => {
-                slide.style.transition = `opacity ${transitionDuration}ms ease`;
-                slide.style.position = 'absolute';
-                slide.style.width = '100%';
-                slide.style.opacity = index === 0 ? '1' : '0';
-                slide.style.zIndex = index === 0 ? '2' : '1';
+                const img = slide.querySelector('img');
+                if (img) {
+                    images[index] = new Image();
+                    images[index].src = img.src;
+                    // Garante que a primeira imagem está totalmente carregada
+                    if (index === 0) {
+                        images[index].onload = () => {
+                            slides[0].style.opacity = 1;
+                        };
+                    }
+                }
             });
-            
-            indicators[0]?.classList.add('active');
         }
     
-        // Mostra slide específico
         function showSlide(index) {
-            if (isAnimating || index === currentIndex) return;
+            if (isAnimating) return;
             
             isAnimating = true;
             
@@ -78,22 +79,29 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Atualiza indicadores
             indicators.forEach(ind => ind.classList.remove('active'));
-            indicators[index]?.classList.add('active');
-            
-            // Prepara próximo slide
-            nextSlide.style.zIndex = '2';
+            indicators[index].classList.add('active');
             
             // Animação
+            nextSlide.style.zIndex = 3; // Slide entrando (maior z-index)
+            currentSlide.style.zIndex = 2; // Slide saindo
+            
+            // Garante que o próximo slide está pronto
+            nextSlide.style.opacity = 0;
+            nextSlide.style.display = 'block';
+            
             setTimeout(() => {
-                nextSlide.style.opacity = '1';
-                currentSlide.style.opacity = '0';
+                nextSlide.classList.add('active');
+                currentSlide.classList.remove('active');
+                
+                nextSlide.style.opacity = 1;
+                currentSlide.style.opacity = 0;
                 
                 setTimeout(() => {
-                    currentSlide.style.zIndex = '1';
                     currentIndex = index;
                     isAnimating = false;
+                    currentSlide.style.zIndex = 1; // Reset z-index
                 }, transitionDuration);
-            }, 50);
+            }, 50); // Pequeno delay para garantir a renderização
         }
     
         function nextSlide() {
@@ -101,6 +109,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     
         function startCarousel() {
+            // Mostra o primeiro slide imediatamente
+            slides[0].style.opacity = 1;
+            slides[0].classList.add('active');
+            indicators[0].classList.add('active');
+            
+            // Inicia o ciclo
             stopCarousel();
             intervalId = setInterval(nextSlide, slideInterval);
         }
@@ -109,12 +123,14 @@ document.addEventListener('DOMContentLoaded', function() {
             clearInterval(intervalId);
         }
     
-        // Event listeners
+        // Eventos
         indicators.forEach((indicator, index) => {
             indicator.addEventListener('click', () => {
-                showSlide(index);
-                stopCarousel();
-                startCarousel();
+                if (index !== currentIndex) {
+                    showSlide(index);
+                    stopCarousel();
+                    startCarousel();
+                }
             });
         });
     
@@ -123,12 +139,16 @@ document.addEventListener('DOMContentLoaded', function() {
             carouselContainer.addEventListener('mouseleave', startCarousel);
         }
     
-        // Inicialização
-        setupCarousel();
-        startCarousel();
+        // Inicialização otimizada
+        preloadImages();
+        
+        // Garante que o DOM está totalmente pronto
+        setTimeout(() => {
+            startCarousel();
+        }, 100);
     }
 
-    // ========== Efeito de Reveal ao Scroll ==========
+    // Efeito de revelação ao rolar a página
     function initScrollReveal() {
         const projectCards = document.querySelectorAll('.project-card');
         
@@ -149,58 +169,25 @@ document.addEventListener('DOMContentLoaded', function() {
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
             
-            // Efeito de hover nos ícones
-            const techIcons = card.querySelector('.tech-icons');
-            if (techIcons) {
-                card.addEventListener('mouseenter', function() {
-                    const icons = this.querySelectorAll('.tech-icons i');
-                    icons.forEach((icon, index) => {
-                        icon.style.transitionDelay = `${index * 0.1}s`;
-                        icon.style.transform = 'translateY(-5px)';
-                    });
+            // Efeito de hover
+            card.addEventListener('mouseenter', function() {
+                const icons = this.querySelectorAll('.tech-icons i');
+                icons.forEach((icon, index) => {
+                    icon.style.transitionDelay = `${index * 0.1}s`;
+                    icon.style.transform = 'translateY(-5px)';
                 });
-                
-                card.addEventListener('mouseleave', function() {
-                    const icons = this.querySelectorAll('.tech-icons i');
-                    icons.forEach(icon => {
-                        icon.style.transform = 'translateY(0)';
-                    });
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                const icons = this.querySelectorAll('.tech-icons i');
+                icons.forEach(icon => {
+                    icon.style.transform = 'translateY(0)';
                 });
-            }
+            });
         });
     }
 
-    // ========== Inicialização de Todos os Componentes ==========
+    // Inicializações
     initCarousel();
     initScrollReveal();
-
-    // ========== Carregamento de Componentes ==========
-    // Carrega a navegação
-    const navContainer = document.getElementById('nav-container');
-    if (navContainer) {
-        fetch('/portfolio/includes/nav.html')
-            .then(response => response.text())
-            .then(data => {
-                navContainer.innerHTML = data;
-                // Reativa os event listeners após carregar o nav
-                const mobileMenu = document.getElementById('mobile-menu');
-                const navList = document.querySelector('.nav-list');
-                if (mobileMenu && navList) {
-                    mobileMenu.addEventListener('click', function() {
-                        navList.classList.toggle('active');
-                        mobileMenu.classList.toggle('active');
-                    });
-                }
-            })
-            .catch(error => console.error('Erro ao carregar navegação:', error));
-    }
-
-    // Carrega o footer
-    const footerContainer = document.getElementById('footer-container');
-    if (footerContainer) {
-        fetch('/portfolio/includes/footer.html')
-            .then(response => response.text())
-            .then(data => footerContainer.innerHTML = data)
-            .catch(error => console.error('Erro ao carregar footer:', error));
-    }
 });
