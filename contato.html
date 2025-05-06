@@ -106,4 +106,24 @@
     </div>
 </section>
 
-<?html include 'includes/footer.html'; ?>
+ <!-- Scripts -->
+    <script src="/portfolio/assets/js/script.js"></script>
+    
+    <!-- Carrega os componentes -->
+    <script>
+        // Carrega a navegação
+        fetch('/portfolio/includes/nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-container').innerHTML = data;
+            })
+            .catch(error => console.error('Erro ao carregar navegação:', error));
+
+        // Carrega o footer
+        fetch('/portfolio/includes/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            })
+            .catch(error => console.error('Erro ao carregar footer:', error));
+    </script>
