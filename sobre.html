@@ -154,75 +154,7 @@
 
 
         document.addEventListener('DOMContentLoaded', function() {
-    // ========== Menu Hamburguer ==========
-    const menuToggle = document.getElementById('mobile-menu');
-    const navList = document.querySelector('.nav-list');
-    
-    if (menuToggle && navList) {
-        menuToggle.addEventListener('click', function() {
-            navList.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
-    }
 
-    // ========== Tema Light/Dark ==========
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-    
-    function initThemeSystem() {
-        if (!themeToggle) {
-            setTimeout(initThemeSystem, 100);
-            return;
-        }
-        
-        // Verificar preferência salva
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        setTheme(savedTheme);
-        
-        themeToggle.addEventListener('click', function() {
-            const newTheme = body.classList.contains('dark-theme') ? 'light' : 'dark';
-            setTheme(newTheme);
-            localStorage.setItem('theme', newTheme);
-        });
-    }
-    
-    function setTheme(theme) {
-        if (theme === 'dark') {
-            body.classList.add('dark-theme');
-            body.classList.remove('light-theme');
-        } else {
-            body.classList.add('light-theme');
-            body.classList.remove('dark-theme');
-        }
-    }
-
-    // ========== Animação da Timeline ==========
-    function initTimelineAnimation() {
-        const timelineItems = document.querySelectorAll('.timeline-item');
-        
-        if (!timelineItems.length) return;
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        timelineItems.forEach(item => {
-            item.style.opacity = 0;
-            item.style.transform = 'translateY(30px)';
-            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(item);
-        });
-    }
-
-    // ========== Inicialização de Todos os Componentes ==========
-    initThemeSystem();
-    initTimelineAnimation();
-});
     </script>
 </body>
 </html>
